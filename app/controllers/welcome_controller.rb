@@ -22,14 +22,20 @@ class WelcomeController < ApplicationController
 
     respond_to do |format|
       # add the URL to the student
-      # Ruby will give the URL the correct student_id
-      if @student.save and @student.urls.create!({:name => '',:url => params[:url]})
-        format.html { redirect_to  '/urls', notice: 'Url was successfully created.' }
-        format.json { render json: @url, status: :created, location: @url }
-      else
-        # If the form doesn't validate we'll just redirect.
-        # We have to create a route in config/routes.rb for this to work
+      unless params[:student][:course] == 'cs132a'
         format.html { redirect_to  '/error'}
+      # Ruby will give the URL the correct student_id
+      else
+        begin 
+          @student.save and @student.urls.create!({:name => '',:url => params[:url]})
+          format.html { redirect_to  '/urls', notice: 'Url was successfully created.' }
+          format.json { render json: @url, status: :created, location: @url }
+        rescue
+        # If the form doesn't validate we'll just redirect.
+          raise 'error'
+        # We have to create a route in config/routes.rb for this to work
+          format.html { redirect_to  '/error'}
+        end
       end
     end
   end
