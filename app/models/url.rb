@@ -5,5 +5,5 @@ class Url < ActiveRecord::Base
   belongs_to :student
   validates :url, :presence => true
   # Write code the validates urls have a domain name of herokuapp.com.
-  # validates :url, :format => { :with =>}
+  # validates :url, :format => { :with => /@herokuapp\.com/}
 end
