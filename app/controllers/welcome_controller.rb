@@ -32,7 +32,7 @@ class WelcomeController < ApplicationController
           format.json { render json: @url, status: :created, location: @url }
         rescue
         # If the form doesn't validate we'll just redirect.
-          raise 'error'
+          #raise 'error'
         # We have to create a route in config/routes.rb for this to work
           format.html { redirect_to  '/error'}
         end
