@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
 
     # We will be creating a new student object to use with Register URL form
     @student = Student.new 
+    @urls = Url.all
+    @students = Student.all
     
     respond_to do |format|
       format.html # index.html.erb

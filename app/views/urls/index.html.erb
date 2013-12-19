@@ -19,6 +19,9 @@
 <% end %>
 </table>
 </div>
+<% @username = Student.last -%>
+<% @site = Url.last -%>
+<p>Thank you <%= @username.name %>, your Heroku URL (<%= @site.url %>) has been added!</p>
 <%= link_to 'Enter another URL', '/',:html => {:class => 'nav'} %>
 </div>
 

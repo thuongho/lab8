@@ -46,14 +46,31 @@
 <div style="margin:1em 0; height:40px;clear:both;"><br></div>
 <div class="row">
   <div class="twelve columns panel callout">
-    <h2>Your output will go here...</h2>
+    <h2>CS132a Heroku Lising</h2>
     <h5>
         <p>
-      When you are finished this assignment, your app will display links to class Heroku web sites here. 
-      Go to the <a href="http://polar-journey-7101.herokuapp.com">example</a> to see how your
-      page should behave. 
+      Check out my classmate's Heroku site listing <a href="http://hills.ccsf.edu/~dputnam/cs132a/ruby_links.py?crn=74686">here</a>. 
       </p>
-      <p>Register your own site into your Registry.</p>
     </h5>
   </div>
+</div>
+<div class="url">
+  <h3>Previous Visitor's URL</h3>
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Student</th>
+        <th>Url</th>
+      </tr>
+
+          <% @students.each do |s| %>
+          <% s.urls.each do |u| %>
+        <tr>
+          <td><%= s.course %></td>
+          <td><%= s.name %></td>
+          <td><a href="<%= u.url %>" title="<%= s.name %>"><%= u.url %></a></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </table>
 </div>
