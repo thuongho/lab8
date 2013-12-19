@@ -4,5 +4,6 @@ class Url < ActiveRecord::Base
   # Write code the shows a url belongs to a student
   belongs_to :student
   # Write code the validates urls have a domain name of herokuapp.com.
-  validates :url, presence: true, format: { with: /\A[\w+\-.]+\.herokuapp\.com\z/}
+  validates :url, format: { with: /[\w+\-.]+\.herokuapp\.com/i,
+    message: "url has to include herokuapp.com" }
 end
