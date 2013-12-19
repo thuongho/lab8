@@ -35,7 +35,7 @@ class WelcomeController < ApplicationController
           #raise 'error'
         # We have to create a route in config/routes.rb for this to work
           format.html { redirect_to  '/error'}
-        end
+        #end
       end
     end
   end
